@@ -332,6 +332,8 @@ Klik untuk melihat detail implementasi kode
 
 <details>
   <summary><strong>📋 Struktur AppState</strong></summary>
+  
+### Koding
 
 ```cpp
 struct AppState {
@@ -340,8 +342,10 @@ struct AppState {
 };
 ```
 
-📌 **Fungsi**: Struktur ini digunakan untuk menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai.
-🎯 **Tujuan**: Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo.
+### Penjelasan
+
+📌 **Fungsi**: Struktur ini digunakan untuk menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai.<br>
+🎯 **Tujuan**: Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo.<br>
 
 </details>
 
