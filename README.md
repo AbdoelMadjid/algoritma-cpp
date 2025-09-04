@@ -330,10 +330,10 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
 
 Klik untuk melihat detail implementasi kode
 
+---
+
 <details>
   <summary><strong>📋 Struktur AppState</strong></summary>
-  
-### Koding
 
 ```cpp
 struct AppState {
@@ -342,30 +342,39 @@ struct AppState {
 };
 ```
 
-### Penjelasan
+📌 Fungsi:
 
-📌 **Fungsi**: Struktur ini digunakan untuk menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai.<br>
-🎯 **Tujuan**: Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo.<br>
+- Menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai
+
+🎯 Tujuan:
+
+- Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo
 
 </details>
+
+---
 
 <details>
   <summary><strong>🗂️ Stack untuk Undo/Redo</strong></summary>
 
 ```cpp
-    stack<AppState> undoStack;
-    stack<AppState> redoStack;
-
+stack<AppState> undoStack;
+stack<AppState> redoStack;
 ```
 
-📌 **Fungsi**: Dua stack digunakan untuk mengimplementasikan fitur undo/redo:
+📌 Fungsi:
 
+- Dua stack digunakan untuk mengimplementasikan fitur undo/redo
 - 📥 `undoStack`: Menyimpan state sebelum setiap operasi (edit/hapus)
 - 📤 `redoStack`: Menyimpan state yang telah di-undo untuk memungkinkan redo
 
-🎯 **Tujuan**: Menciptakan **riwayat perubahan** yang dapat **dilanggar** dan **dikembalikan**.
+🎯 Tujuan:
+
+- Menciptakan riwayat perubahan yang dapat dibatalkan dan dikembalikan
 
 </details>
+
+---
 
 <details>
   <summary><strong>💾 Fungsi saveState()</strong></summary>
@@ -384,11 +393,22 @@ void saveState(const vector<int>& arr, const map<int, int>& freq) {
 }
 ```
 
-📌 **Fungsi**: Menyimpan state saat ini ke undo stack dan membersihkan redo stack.
-🎯 **Tujuan**: Dipanggil sebelum setiap operasi yang mengubah data (edit/hapus) untuk memungkinkan undo.
-⚠️ **Penting**: Membersihkan redo stack saat ada perubahan baru untuk menjaga konsistensi riwayat.
+📌 Fungsi:
+
+- Menyimpan state saat ini ke undo stack
+- Membersihkan redo stack saat ada perubahan baru
+
+🎯 Tujuan:
+
+- Dipanggil sebelum setiap operasi yang mengubah data (edit/hapus) untuk memungkinkan undo
+
+⚠️ Penting:
+
+- Membersihkan redo stack saat ada perubahan baru untuk menjaga konsistensi riwayat
 
 </details>
+
+---
 
 <details>
   <summary><strong>↩️ Fungsi undo() dan redo()</strong></summary>
@@ -417,15 +437,22 @@ void undo(vector<int>& arr, map<int, int>& freq) {
 }
 ```
 
-📌 **Fungsi**:
+📌 Fungsi:
 
-- ↩️ `Undo`: Memindahkan state saat ini ke redo stack dan mengembalikan state sebelumnya dari undo stack
-- ↩️ `Redo`: Melakukan operasi sebaliknya (mengembalikan operasi yang di-undo)
+- ↩️ Undo: Memindahkan state saat ini ke redo stack dan mengembalikan state sebelumnya dari undo stack
+- 🔁 Redo: Melakukan operasi sebaliknya (mengembalikan operasi yang di-undo)
 
-🎯 **Tujuan**: Memberikan kontrol penuh kepada pengguna untuk membatalkan dan mengulangi operasi.
-⚠️ **Penting**: Selalu memeriksa apakah stack tidak kosong sebelum melakukan operasi.
+🎯 Tujuan:
+
+- Memberikan kontrol penuh kepada pengguna untuk membatalkan dan mengulangi operasi
+
+⚠️ Penting:
+
+- Selalu memeriksa apakah stack tidak kosong sebelum melakukan operasi
 
 </details>
+
+---
 
 <details>
   <summary><strong>✏️ Fungsi editNilai()</strong></summary>
@@ -473,11 +500,21 @@ void editNilai(vector<int>& arr, map<int, int>& freq) {
 }
 ```
 
-📌 **Fungsi**: Memungkinkan pengguna untuk mengedit nilai berdasarkan indeks.
-🎯 **Tujuan**: Modifikasi data yang aman dengan validasi lengkap.
-⚠️ **Penting**: Melakukan validasi indeks, range nilai baru, dan duplikat sebelum mengubah data.
+📌 Fungsi:
+
+- Memungkinkan pengguna untuk mengedit nilai berdasarkan indeks
+
+🎯 Tujuan:
+
+- Modifikasi data yang aman dengan validasi lengkap
+
+⚠️ Penting:
+
+- Melakukan validasi indeks, range nilai baru, dan duplikat sebelum mengubah data
 
 </details>
+
+---
 
 <details>
   <summary><strong>🗑️ Fungsi hapusNilai()</strong></summary>
@@ -516,11 +553,21 @@ void hapusNilai(vector<int>& arr, map<int, int>& freq) {
 }
 ```
 
-📌 **Fungsi**: Memungkinkan pengguna untuk menghapus nilai berdasarkan indeks.
-🎯 **Tujuan**: Penghapusan data yang aman dengan notifikasi jelas.
-⚠️ **Penting**: Memeriksa apakah array kosong dan validasi indeks sebelum penghapusan.
+📌 Fungsi:
+
+- Memungkinkan pengguna untuk menghapus nilai berdasarkan indeks
+
+🎯 Tujuan:
+
+- Penghapusan data yang aman dengan notifikasi jelas
+
+⚠️ Penting:
+
+- Memeriksa apakah array kosong dan validasi indeks sebelum penghapusan
 
 </details>
+
+---
 
 <details>
   <summary><strong>📊 Fungsi tampilkanStatistik()</strong></summary>
@@ -546,11 +593,21 @@ void tampilkanStatistik(const vector<int>& arr) {
 }
 ```
 
-📌 **Fungsi**: Menghitung dan menampilkan statistik data.
-🎯 **Tujuan**: Analisis data komprehensif dengan perhitungan otomatis.
-⚠️ **Penting**: Menggunakan algoritma STL seperti accumulate, min_element, dan max_element.
+📌 Fungsi:
+
+- Menghitung dan menampilkan statistik data
+
+🎯 Tujuan:
+
+- Analisis data komprehensif dengan perhitungan otomatis
+
+⚠️ Penting:
+
+- Menggunakan algoritma STL seperti accumulate, min_element, dan max_element
 
 </details>
+
+---
 
 <details>
   <summary><strong>💾 Fungsi simpanKeFile()</strong></summary>
@@ -578,11 +635,21 @@ void simpanKeFile(const vector<int>& arr) {
 }
 ```
 
-📌 **Fungsi**: Memungkinkan pengguna untuk menyimpan data ke file.
-🎯 **Tujuan**: Ekspor data yang mudah dengan format yang jelas.
-⚠️ **Penting**: Validasi pembukaan file sebelum menulis data.
+📌 Fungsi:
+
+- Memungkinkan pengguna untuk menyimpan data ke file
+
+🎯 Tujuan:
+
+- Ekspor data yang mudah dengan format yang jelas
+
+⚠️ Penting:
+
+- Validasi pembukaan file sebelum menulis data
 
 </details>
+
+---
 
 <details>
   <summary><strong>🔄 Bubble Sort</strong></summary>
@@ -597,8 +664,16 @@ for (int i = 0; i < arr.size() - 1; i++) {
 }
 ```
 
-📌 **Fungsi**: Mengurutkan nilai dalam array secara ascending.
-🎯 **Tujuan**: Pengurutan data yang efisien dengan algoritma klasik.
-⚠️ **Penting**: Membandingkan pasangan elemen yang berdekatan dan menukarnya jika mereka dalam urutan yang salah.
+📌 Fungsi:
+
+- Mengurutkan nilai dalam array secara ascending
+
+🎯 Tujuan:
+
+- Pengurutan data yang efisien dengan algoritma klasik
+
+⚠️ Penting:
+
+- Membandingkan pasangan elemen yang berdekatan dan menukarnya jika mereka dalam urutan yang salah
 
 </details>
