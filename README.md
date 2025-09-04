@@ -330,8 +330,6 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
 
 Klik untuk melihat detail implementasi kode
 
----
-
 <details>
   <summary><strong>📋 Struktur AppState</strong></summary>
 
@@ -352,8 +350,6 @@ struct AppState {
 
 </details>
 
----
-
 <details>
   <summary><strong>🗂️ Stack untuk Undo/Redo</strong></summary>
 
@@ -373,8 +369,6 @@ stack<AppState> redoStack;
 - Menciptakan riwayat perubahan yang dapat dibatalkan dan dikembalikan
 
 </details>
-
----
 
 <details>
   <summary><strong>💾 Fungsi saveState()</strong></summary>
@@ -407,8 +401,6 @@ void saveState(const vector<int>& arr, const map<int, int>& freq) {
 - Membersihkan redo stack saat ada perubahan baru untuk menjaga konsistensi riwayat
 
 </details>
-
----
 
 <details>
   <summary><strong>↩️ Fungsi undo() dan redo()</strong></summary>
@@ -451,8 +443,6 @@ void undo(vector<int>& arr, map<int, int>& freq) {
 - Selalu memeriksa apakah stack tidak kosong sebelum melakukan operasi
 
 </details>
-
----
 
 <details>
   <summary><strong>✏️ Fungsi editNilai()</strong></summary>
@@ -514,8 +504,6 @@ void editNilai(vector<int>& arr, map<int, int>& freq) {
 
 </details>
 
----
-
 <details>
   <summary><strong>🗑️ Fungsi hapusNilai()</strong></summary>
 
@@ -567,8 +555,6 @@ void hapusNilai(vector<int>& arr, map<int, int>& freq) {
 
 </details>
 
----
-
 <details>
   <summary><strong>📊 Fungsi tampilkanStatistik()</strong></summary>
 
@@ -606,8 +592,6 @@ void tampilkanStatistik(const vector<int>& arr) {
 - Menggunakan algoritma STL seperti accumulate, min_element, dan max_element
 
 </details>
-
----
 
 <details>
   <summary><strong>💾 Fungsi simpanKeFile()</strong></summary>
@@ -648,8 +632,6 @@ void simpanKeFile(const vector<int>& arr) {
 - Validasi pembukaan file sebelum menulis data
 
 </details>
-
----
 
 <details>
   <summary><strong>🔄 Bubble Sort</strong></summary>
