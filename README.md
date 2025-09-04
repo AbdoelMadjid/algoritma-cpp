@@ -6,6 +6,7 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
 
 <details>
   <summary>Detail</summary>
+
     1. **Input Data**
 
     - Menentukan jumlah nilai yang akan diinput
