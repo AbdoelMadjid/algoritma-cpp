@@ -2,56 +2,73 @@
 
 Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur tambahan untuk manipulasi data, statistik, dan manajemen state.
 
-## Fitur-fitur
+## 🌟 Fitur-Fitur Unggulan
 
 <details>
-  <summary>Detail</summary>
+  <summary><strong>Klik untuk melihat semua fitur (7 fitur utama)</strong></summary>
+  
+### 1. 📝 **Input Data**
+- ✅ Menentukan jumlah nilai yang akan diinput
+- ✅ Validasi range nilai (1-100)
+- ✅ Deteksi dan penolakan duplikat
+- 📌 *Memastikan data input valid dan unik sejak awal*
 
-    1. **Input Data**
+### 2. ✏️ **Edit Nilai**
 
-    - Menentukan jumlah nilai yang akan diinput
-    - Validasi range nilai (1-100)
-    - Deteksi dan penolakan duplikat
+- ✅ Memilih nilai berdasarkan indeks
+- ✅ Validasi range nilai baru
+- ✅ Pencegahan duplikat
+- ✅ Update frekuensi otomatis
+- 📌 _Modifikasi data yang aman dengan validasi lengkap_
 
-    2. **Edit Nilai**
+### 3. 🗑️ **Hapus Nilai**
 
-    - Memilih nilai berdasarkan indeks
-    - Validasi range nilai baru
-    - Pencegahan duplikat
-    - Update frekuensi otomatis
+- ✅ Memilih nilai berdasarkan indeks
+- ✅ Validasi indeks
+- ✅ Update frekuensi otomatis
+- ✅ Penanganan array kosong
+- 📌 _Penghapusan data yang aman dengan notifikasi jelas_
 
-    3. **Hapus Nilai**
+### 4. 📊 **Statistik Lengkap**
 
-    - Memilih nilai berdasarkan indeks
-    - Validasi indeks
-    - Update frekuensi otomatis
-    - Penanganan array kosong
+- ✅ Jumlah nilai
+- ✅ Nilai minimum
+- ✅ Nilai maksimum
+- ✅ Rata-rata
+- ✅ Total nilai
+- 📌 _Analisis data komprehensif dengan perhitungan otomatis_
 
-    4. **Statistik**
+### 5. 💾 **Simpan ke File**
 
-    - Jumlah nilai
-    - Nilai minimum
-    - Nilai maksimum
-    - Rata-rata
-    - Total nilai
+- ✅ Memilih nama file
+- ✅ Menyimpan jumlah nilai dan data nilai
+- ✅ Validasi pembukaan file
+- 📌 _Ekspor data yang mudah dengan format yang jelas_
 
-    5. **Simpan ke File**
+### 6. ↩️ **Undo/Redo System**
 
-    - Memilih nama file
-    - Menyimpan jumlah nilai dan data nilai
-    - Validasi pembukaan file
+- ✅ Undo untuk membatalkan operasi terakhir
+- ✅ Redo untuk mengembalikan operasi yang di-undo
+- ✅ Manajemen state dengan stack
+- 📌 _Kontrol perubahan data dengan riwayat lengkap_
 
-    6. **Undo/Redo System**
+### 7. 🔄 **Sorting**
 
-    - Undo untuk membatalkan operasi terakhir
-    - Redo untuk mengembalikan operasi yang di-undo
-    - Manajemen state dengan stack
-
-    7. **Sorting**
-    - Bubble Sort untuk mengurutkan nilai
-    - Menampilkan hasil sorting
+- ✅ Bubble Sort untuk mengurutkan nilai
+- ✅ Menampilkan hasil sorting
+- 📌 _Pengurutan data yang efisien dengan algoritma klasik_
 
 </details>
+
+---
+
+### 💡 Keunggulan Implementasi:
+
+- **Validasi Komprehensif**: Setiap input divalidasi dengan ketentuan jelas
+- **Manajemen State Canggih**: Sistem undo/redo dengan stack untuk riwayat lengkap
+- **Antarmuka Intuitif**: Menu interaktif dengan pesan error yang jelas
+- **Efisiensi Data**: Penggunaan struktur data optimal (vector, map, stack)
+- **Modularitas**: Kode terorganisir dalam fungsi-fungsi terpisah
 
 ## Cara Menjalankan Program
 
