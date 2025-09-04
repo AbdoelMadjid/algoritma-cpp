@@ -351,14 +351,12 @@ struct AppState {
 
 ```
 
-📌 Fungsi: Dua stack digunakan untuk mengimplementasikan fitur undo/redo:
+📌 **Fungsi**: Dua stack digunakan untuk mengimplementasikan fitur undo/redo:
 
-<ol>
-<li>_undoStack_: Menyimpan state sebelum setiap operasi (edit/hapus)
-<li>_redoStack_: Menyimpan state yang telah di-undo untuk memungkinkan redo
-</ol>
+- 📥 `undoStack`: Menyimpan state sebelum setiap operasi (edit/hapus)
+- 📤 `redoStack`: Menyimpan state yang telah di-undo untuk memungkinkan redo
 
-🎯 Tujuan: Menciptakan riwayat perubahan yang dapat dilanggar dan dikembalikan.
+🎯 **Tujuan**: Menciptakan **riwayat perubahan** yang dapat **dilanggar** dan **dikembalikan**.
 
 ### 💾 Fungsi saveState()
 
