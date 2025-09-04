@@ -264,3 +264,62 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
     40 55 70
 
 </details>
+
+---
+
+### 💡 Tips Penggunaan:
+
+| Tips | Deskripsi                                                                                       |
+| ---- | ----------------------------------------------------------------------------------------------- |
+| 🔄   | **Gunakan fitur Undo/Redo** untuk bereksperimen dengan data tanpa khawatir kehilangan data asli |
+| 💾   | **Simpan hasil ke file** dengan format **.txt** atau **.csv** untuk dokumentasi                 |
+| 📊   | **Cek Statistik** untuk analisis cepat data Anda                                                |
+| ✅   | **Pastikan input nilai** dalam rentang **1-100** dan unik                                       |
+
+---
+
+## 🎓 Konsep yang Diajarkan
+
+<details>
+  <summary><strong>Klik untuk melihat semua konsep pemrograman (7 kategori)</strong></summary>
+
+### 1. 📚 Struktur Data
+
+- **Vector** untuk penyimpanan data dinamis
+- **Map** untuk tracking frekuensi
+- **Stack** untuk manajemen state (undo/redo)
+
+### 2. ⚙️ Algoritma
+
+- **Bubble Sort** untuk pengurutan data
+- Algoritma untuk pencarian nilai minimum/maksimum
+- Algoritma untuk menghitung statistik
+
+### 3. 🧩 Pemrograman Modular
+
+- Pemecahan kode menjadi fungsi-fungsi kecil
+- Enkapsulasi logika dalam fungsi
+- Parameter passing dan return value
+
+### 4. 🔍 Validasi Input
+
+- Pemeriksaan range nilai
+- Pencegahan duplikat
+- Validasi indeks
+
+### 5. 💽 File I/O
+
+- Menulis data ke file
+- Penanganan error file
+
+### 6. 🔄 Manajemen State
+
+- Konsep undo/redo
+- Penyimpanan dan pemulihan state aplikasi
+
+### 7. ⚠️ Error Handling
+
+- Penanganan input tidak valid
+- Pesan error yang informatif
+
+</details>
