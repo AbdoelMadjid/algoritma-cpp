@@ -70,6 +70,8 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
 - **Efisiensi Data**: Penggunaan struktur data optimal (vector, map, stack)
 - **Modularitas**: Kode terorganisir dalam fungsi-fungsi terpisah
 
+---
+
 ## 🚀 Cara Menjalankan Program
 
 <details>
@@ -102,7 +104,9 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
 
 </details>
 
-### 🎮 Contoh Interaksi Program
+---
+
+## 🎮 Contoh Interaksi Program
 
 <details>
   <summary><strong><strong>📝 Contoh 1: Input, Edit, dan Undo</strong></summary>
