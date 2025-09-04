@@ -328,10 +328,10 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
 
 ## 🔍 Penjelasan Implementasi
 
-<details>
-  <summary><strong>Klik untuk melihat detail implementasi kode</strong></summary>
+Klik untuk melihat detail implementasi kode
 
-### 📋 Struktur AppState
+<details>
+  <summary><strong>📋 Struktur AppState</strong></summary>
 
 ```cpp
 struct AppState {
@@ -343,7 +343,10 @@ struct AppState {
 📌 **Fungsi:** Struktur ini digunakan untuk menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai.<br>
 🎯 **Tujuan:** Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo.<br>
 
-### 🗂️ Stack untuk Undo/Redo
+</details>
+
+<details>
+  <summary><strong>🗂️ Stack untuk Undo/Redo</strong></summary>
 
 ```cpp
     stack<AppState> undoStack;
@@ -358,9 +361,10 @@ struct AppState {
 
 🎯 **Tujuan**: Menciptakan **riwayat perubahan** yang dapat **dilanggar** dan **dikembalikan**.
 
----
+</details>
 
-### 💾 Fungsi saveState()
+<details>
+  <summary><strong>💾 Fungsi saveState()</strong></summary>
 
 ```cpp
 void saveState(const vector<int>& arr, const map<int, int>& freq) {
@@ -380,9 +384,10 @@ void saveState(const vector<int>& arr, const map<int, int>& freq) {
 🎯 **Tujuan:** Dipanggil sebelum setiap operasi yang mengubah data (edit/hapus) untuk memungkinkan undo.<br>
 ⚠️ **Penting:** Membersihkan redo stack saat ada perubahan baru untuk menjaga konsistensi riwayat.<br>
 
----
+</details>
 
-### ↩️ Fungsi undo() dan redo()
+<details>
+  <summary><strong>↩️ Fungsi undo() dan redo()</strong></summary>
 
 ```cpp
 void undo(vector<int>& arr, map<int, int>& freq) {
@@ -416,9 +421,10 @@ void undo(vector<int>& arr, map<int, int>& freq) {
 🎯 **Tujuan:** Memberikan kontrol penuh kepada pengguna untuk membatalkan dan mengulangi operasi.<br>
 ⚠️ **Penting:** Selalu memeriksa apakah stack tidak kosong sebelum melakukan operasi.<br>
 
----
+</details>
 
-## ✏️ Fungsi editNilai()
+<details>
+  <summary><strong>✏️ Fungsi editNilai()</strong></summary>
 
 ```cpp
 void editNilai(vector<int>& arr, map<int, int>& freq) {
@@ -467,9 +473,10 @@ void editNilai(vector<int>& arr, map<int, int>& freq) {
 🎯 **Tujuan:** Modifikasi data yang aman dengan validasi lengkap.<br>
 ⚠️ **Penting:** Melakukan validasi indeks, range nilai baru, dan duplikat sebelum mengubah data.<br>
 
----
+</details>
 
-### 🗑️ Fungsi hapusNilai()
+<details>
+  <summary><strong>🗑️ Fungsi hapusNilai()</strong></summary>
 
 ```cpp
 void hapusNilai(vector<int>& arr, map<int, int>& freq) {
@@ -509,9 +516,10 @@ void hapusNilai(vector<int>& arr, map<int, int>& freq) {
 🎯 **Tujuan:** Penghapusan data yang aman dengan notifikasi jelas.<br>
 ⚠️ **Penting:** Memeriksa apakah array kosong dan validasi indeks sebelum penghapusan.<br>
 
----
+</details>
 
-### 📊 Fungsi tampilkanStatistik()
+<details>
+  <summary><strong>📊 Fungsi tampilkanStatistik()</strong></summary>
 
 ```cpp
 void tampilkanStatistik(const vector<int>& arr) {
@@ -538,9 +546,10 @@ void tampilkanStatistik(const vector<int>& arr) {
 🎯 **Tujuan:** Analisis data komprehensif dengan perhitungan otomatis.<br>
 ⚠️ **Penting:** Menggunakan algoritma STL seperti accumulate, min_element, dan max_element.<br>
 
----
+</details>
 
-### 💾 Fungsi simpanKeFile()
+<details>
+  <summary><strong>💾 Fungsi simpanKeFile()</strong></summary>
 
 ```cpp
 void simpanKeFile(const vector<int>& arr) {
@@ -569,9 +578,10 @@ void simpanKeFile(const vector<int>& arr) {
 🎯 **Tujuan:** Ekspor data yang mudah dengan format yang jelas.<br>
 ⚠️ **Penting:** Validasi pembukaan file sebelum menulis data.<br>
 
----
+</details>
 
-### 🔄 Bubble Sort
+<details>
+  <summary><strong>🔄 Bubble Sort</strong></summary>
 
 ```cpp
 for (int i = 0; i < arr.size() - 1; i++) {
