@@ -340,8 +340,10 @@ struct AppState {
 };
 ```
 
-📌 **Fungsi:** Struktur ini digunakan untuk menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai.<br>
-🎯 **Tujuan:** Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo.<br>
+- **Validasi Komprehensif**: Setiap input divalidasi dengan ketentuan jelas
+
+- 📌 **Fungsi:** Struktur ini digunakan untuk menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai.
+- 🎯 **Tujuan:** Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo.
 
 </details>
 
@@ -380,9 +382,9 @@ void saveState(const vector<int>& arr, const map<int, int>& freq) {
 }
 ```
 
-📌 **Fungsi:** Menyimpan state saat ini ke undo stack dan membersihkan redo stack.<br>
-🎯 **Tujuan:** Dipanggil sebelum setiap operasi yang mengubah data (edit/hapus) untuk memungkinkan undo.<br>
-⚠️ **Penting:** Membersihkan redo stack saat ada perubahan baru untuk menjaga konsistensi riwayat.<br>
+📌 **Fungsi:** Menyimpan state saat ini ke undo stack dan membersihkan redo stack.
+🎯 **Tujuan:** Dipanggil sebelum setiap operasi yang mengubah data (edit/hapus) untuk memungkinkan undo.
+⚠️ **Penting:** Membersihkan redo stack saat ada perubahan baru untuk menjaga konsistensi riwayat.
 
 </details>
 
@@ -418,8 +420,8 @@ void undo(vector<int>& arr, map<int, int>& freq) {
 - ↩️ `Undo`: Memindahkan state saat ini ke redo stack dan mengembalikan state sebelumnya dari undo stack
 - ↩️ `Redo`: Melakukan operasi sebaliknya (mengembalikan operasi yang di-undo)
 
-🎯 **Tujuan:** Memberikan kontrol penuh kepada pengguna untuk membatalkan dan mengulangi operasi.<br>
-⚠️ **Penting:** Selalu memeriksa apakah stack tidak kosong sebelum melakukan operasi.<br>
+🎯 **Tujuan:** Memberikan kontrol penuh kepada pengguna untuk membatalkan dan mengulangi operasi.
+⚠️ **Penting:** Selalu memeriksa apakah stack tidak kosong sebelum melakukan operasi.
 
 </details>
 
@@ -469,9 +471,9 @@ void editNilai(vector<int>& arr, map<int, int>& freq) {
 }
 ```
 
-📌 **Fungsi:** Memungkinkan pengguna untuk mengedit nilai berdasarkan indeks.<br>
-🎯 **Tujuan:** Modifikasi data yang aman dengan validasi lengkap.<br>
-⚠️ **Penting:** Melakukan validasi indeks, range nilai baru, dan duplikat sebelum mengubah data.<br>
+📌 **Fungsi:** Memungkinkan pengguna untuk mengedit nilai berdasarkan indeks.
+🎯 **Tujuan:** Modifikasi data yang aman dengan validasi lengkap.
+⚠️ **Penting:** Melakukan validasi indeks, range nilai baru, dan duplikat sebelum mengubah data.
 
 </details>
 
@@ -512,9 +514,9 @@ void hapusNilai(vector<int>& arr, map<int, int>& freq) {
 }
 ```
 
-📌 **Fungsi:** Memungkinkan pengguna untuk menghapus nilai berdasarkan indeks.<br>
-🎯 **Tujuan:** Penghapusan data yang aman dengan notifikasi jelas.<br>
-⚠️ **Penting:** Memeriksa apakah array kosong dan validasi indeks sebelum penghapusan.<br>
+📌 **Fungsi:** Memungkinkan pengguna untuk menghapus nilai berdasarkan indeks.
+🎯 **Tujuan:** Penghapusan data yang aman dengan notifikasi jelas.
+⚠️ **Penting:** Memeriksa apakah array kosong dan validasi indeks sebelum penghapusan.
 
 </details>
 
@@ -542,9 +544,9 @@ void tampilkanStatistik(const vector<int>& arr) {
 }
 ```
 
-📌 **Fungsi:** Menghitung dan menampilkan statistik data.<br>
-🎯 **Tujuan:** Analisis data komprehensif dengan perhitungan otomatis.<br>
-⚠️ **Penting:** Menggunakan algoritma STL seperti accumulate, min_element, dan max_element.<br>
+📌 **Fungsi:** Menghitung dan menampilkan statistik data.
+🎯 **Tujuan:** Analisis data komprehensif dengan perhitungan otomatis.
+⚠️ **Penting:** Menggunakan algoritma STL seperti accumulate, min_element, dan max_element.
 
 </details>
 
@@ -574,9 +576,9 @@ void simpanKeFile(const vector<int>& arr) {
 }
 ```
 
-📌 **Fungsi:** Memungkinkan pengguna untuk menyimpan data ke file.<br>
-🎯 **Tujuan:** Ekspor data yang mudah dengan format yang jelas.<br>
-⚠️ **Penting:** Validasi pembukaan file sebelum menulis data.<br>
+📌 **Fungsi:** Memungkinkan pengguna untuk menyimpan data ke file.
+🎯 **Tujuan:** Ekspor data yang mudah dengan format yang jelas.
+⚠️ **Penting:** Validasi pembukaan file sebelum menulis data.
 
 </details>
 
@@ -593,8 +595,8 @@ for (int i = 0; i < arr.size() - 1; i++) {
 }
 ```
 
-📌 **Fungsi:** Mengurutkan nilai dalam array secara ascending.<br>
-🎯 **Tujuan:** Pengurutan data yang efisien dengan algoritma klasik.<br>
-⚠️ **Penting:** Membandingkan pasangan elemen yang berdekatan dan menukarnya jika mereka dalam urutan yang salah.<br>
+📌 **Fungsi:** Mengurutkan nilai dalam array secara ascending.
+🎯 **Tujuan:** Pengurutan data yang efisien dengan algoritma klasik.
+⚠️ **Penting:** Membandingkan pasangan elemen yang berdekatan dan menukarnya jika mereka dalam urutan yang salah.
 
 </details>
