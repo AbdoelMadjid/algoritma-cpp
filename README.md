@@ -323,3 +323,254 @@ Program C++ yang mengimplementasikan algoritma Bubble Sort dengan berbagai fitur
 - Pesan error yang informatif
 
 </details>
+
+---
+
+## 🔍 Penjelasan Implementasi
+
+<details>
+  <summary><strong>Klik untuk melihat detail implementasi kode</strong></summary>
+
+### 📋 Struktur AppState
+
+```cpp
+struct AppState {
+    vector<int> arr;
+    map<int, int> freq;
+};
+```
+
+📌 Fungsi: Struktur ini digunakan untuk menyimpan state lengkap aplikasi, yaitu array nilai dan frekuensi kemunculan setiap nilai.
+🎯 Tujuan: Memungkinkan penyimpanan dan pemulihan state untuk fungsi undo/redo.
+
+### 🗂️ Stack untuk Undo/Redo
+
+```cpp
+    stack<AppState> undoStack;
+    stack<AppState> redoStack;
+
+```
+
+📌 Fungsi: Dua stack digunakan untuk mengimplementasikan fitur undo/redo:
+
+<ol>
+<li>_undoStack_: Menyimpan state sebelum setiap operasi (edit/hapus)
+<li>_redoStack_: Menyimpan state yang telah di-undo untuk memungkinkan redo
+</ol>
+
+🎯 Tujuan: Menciptakan riwayat perubahan yang dapat dilanggar dan dikembalikan.
+
+### 💾 Fungsi saveState()
+
+```cpp
+void saveState(const vector<int>& arr, const map<int, int>& freq) {
+    AppState state;
+    state.arr = arr;
+    state.freq = freq;
+    undoStack.push(state);
+
+    // Clear redo stack saat ada perubahan baru
+    while (!redoStack.empty()) {
+        redoStack.pop();
+    }
+}
+```
+
+📌 Fungsi: Menyimpan state saat ini ke undo stack dan membersihkan redo stack.
+🎯 Tujuan: Dipanggil sebelum setiap operasi yang mengubah data (edit/hapus) untuk memungkinkan undo.
+⚠️ Penting: Membersihkan redo stack saat ada perubahan baru untuk menjaga konsistensi riwayat.
+
+### ↩️ Fungsi undo() dan redo()
+
+```cpp
+void undo(vector<int>& arr, map<int, int>& freq) {
+    if (undoStack.empty()) {
+        cout << "Tidak ada operasi yang bisa di-undo!\n";
+        return;
+    }
+
+    // Simpan state sekarang untuk redo
+    AppState currentState;
+    currentState.arr = arr;
+    currentState.freq = freq;
+    redoStack.push(currentState);
+
+    // Kembalikan state sebelumnya
+    AppState previousState = undoStack.top();
+    arr = previousState.arr;
+    freq = previousState.freq;
+    undoStack.pop();
+
+    cout << "Undo berhasil!\n";
+    tampilkanNilai(arr);
+}
+```
+
+📌 Fungsi:
+Undo: Memindahkan state saat ini ke redo stack dan mengembalikan state sebelumnya dari undo stack
+Redo: Melakukan operasi sebaliknya (mengembalikan operasi yang di-undo)
+🎯 Tujuan: Memberikan kontrol penuh kepada pengguna untuk membatalkan dan mengulangi operasi.
+⚠️ Penting: Selalu memeriksa apakah stack tidak kosong sebelum melakukan operasi.
+
+## ✏️ Fungsi editNilai()
+
+```cpp
+void editNilai(vector<int>& arr, map<int, int>& freq) {
+    tampilkanNilai(arr);
+
+    int index, newValue;
+    cout << "\nMasukkan indeks nilai yang ingin diedit (1-" << arr.size() << "): ";
+    cin >> index;
+
+    if (index < 1 || index > arr.size()) {
+        cout << "ERROR: Indeks tidak valid!\n";
+        return;
+    }
+
+    int oldValue = arr[index - 1];
+    cout << "Masukkan nilai baru (1-100): ";
+    cin >> newValue;
+
+    if (newValue < 1 || newValue > 100) {
+        cout << "ERROR: Nilai harus antara 1-100!\n";
+        return;
+    }
+
+    if (newValue != oldValue && freq[newValue] > 0) {
+        cout << "ERROR: Nilai " << newValue << " sudah ada di data!\n";
+        return;
+    }
+
+    saveState(arr, freq);
+
+    // Update frekuensi
+    freq[oldValue]--;
+    if (freq[oldValue] == 0) {
+        freq.erase(oldValue);
+    }
+
+    arr[index - 1] = newValue;
+    freq[newValue]++;
+
+    cout << "Nilai berhasil diubah!\n";
+    tampilkanNilai(arr);
+}
+```
+
+📌 Fungsi: Memungkinkan pengguna untuk mengedit nilai berdasarkan indeks.
+🎯 Tujuan: Modifikasi data yang aman dengan validasi lengkap.
+⚠️ Penting: Melakukan validasi indeks, range nilai baru, dan duplikat sebelum mengubah data.
+
+### 🗑️ Fungsi hapusNilai()
+
+```cpp
+void hapusNilai(vector<int>& arr, map<int, int>& freq) {
+    if (arr.empty()) {
+        cout << "Tidak ada data yang bisa dihapus!\n";
+        return;
+    }
+
+    tampilkanNilai(arr);
+
+    int index;
+    cout << "\nMasukkan indeks nilai yang ingin dihapus (1-" << arr.size() << "): ";
+    cin >> index;
+
+    if (index < 1 || index > arr.size()) {
+        cout << "ERROR: Indeks tidak valid!\n";
+        return;
+    }
+
+    saveState(arr, freq);
+
+    int deletedValue = arr[index - 1];
+    arr.erase(arr.begin() + index - 1);
+
+    // Update frekuensi
+    freq[deletedValue]--;
+    if (freq[deletedValue] == 0) {
+        freq.erase(deletedValue);
+    }
+
+    cout << "Nilai " << deletedValue << " berhasil dihapus!\n";
+    tampilkanNilai(arr);
+}
+```
+
+📌 Fungsi: Memungkinkan pengguna untuk menghapus nilai berdasarkan indeks.
+🎯 Tujuan: Penghapusan data yang aman dengan notifikasi jelas.
+⚠️ Penting: Memeriksa apakah array kosong dan validasi indeks sebelum penghapusan.
+
+### 📊 Fungsi tampilkanStatistik()
+
+```cpp
+void tampilkanStatistik(const vector<int>& arr) {
+    if (arr.empty()) {
+        cout << "Tidak ada data untuk ditampilkan statistiknya.\n";
+        return;
+    }
+
+    double sum = accumulate(arr.begin(), arr.end(), 0.0);
+    double avg = sum / arr.size();
+    int min_val = *min_element(arr.begin(), arr.end());
+    int max_val = *max_element(arr.begin(), arr.end());
+
+    cout << "\n=== STATISTIK DATA ===\n";
+    cout << "Jumlah nilai: " << arr.size() << endl;
+    cout << "Nilai minimum: " << min_val << endl;
+    cout << "Nilai maksimum: " << max_val << endl;
+    cout << "Rata-rata: " << avg << endl;
+    cout << "Total nilai: " << sum << endl;
+}
+```
+
+📌 Fungsi: Menghitung dan menampilkan statistik data.
+🎯 Tujuan: Analisis data komprehensif dengan perhitungan otomatis.
+⚠️ Penting: Menggunakan algoritma STL seperti accumulate, min_element, dan max_element.
+
+### 💾 Fungsi simpanKeFile()
+
+```cpp
+void simpanKeFile(const vector<int>& arr) {
+    string filename;
+    cout << "Masukkan nama file (contoh: data.txt): ";
+    cin >> filename;
+
+    ofstream file(filename);
+    if (!file) {
+        cout << "Gagal membuka file!\n";
+        return;
+    }
+
+    file << "Jumlah nilai: " << arr.size() << endl;
+    file << "Data nilai:\n";
+    for (int num : arr) {
+        file << num << " ";
+    }
+    file.close();
+
+    cout << "Data berhasil disimpan ke " << filename << endl;
+}
+```
+
+📌 Fungsi: Memungkinkan pengguna untuk menyimpan data ke file.
+🎯 Tujuan: Ekspor data yang mudah dengan format yang jelas.
+⚠️ Penting: Validasi pembukaan file sebelum menulis data.
+
+### 🔄 Bubble Sort
+
+```cpp
+for (int i = 0; i < arr.size() - 1; i++) {
+    for (int j = 0; j < arr.size() - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+            swap(arr[j], arr[j + 1]);
+        }
+    }
+}
+```
+
+📌 Fungsi: Mengurutkan nilai dalam array secara ascending.
+🎯 Tujuan: Pengurutan data yang efisien dengan algoritma klasik.
+⚠️ Penting: Membandingkan pasangan elemen yang berdekatan dan menukarnya jika mereka dalam urutan yang salah.
+
+</details>
